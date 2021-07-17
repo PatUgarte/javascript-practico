@@ -13,7 +13,6 @@ const RESULT_UNITS_OBJECT = { perimeter: "cm", area: "cm²" };
 
 /* Getting the DOM-Elements */
 const figureForms = document.querySelectorAll(".figure-section__form");
-const figureChooser = document.getElementById("figure-chooser");
 const figureSelector = document.getElementById("figure-chooser__selector");
 const figureMain = document.getElementById("main-figure-page");
 /* Figure-forms */
@@ -29,9 +28,6 @@ const resultUnitEl = document.getElementById("result-section__value--unit");
 
 /* Reseting values and states */
 figureSelector.value = figureSelector[0].value;
-figureForms.forEach((form) => {
-  form.reset();
-});
 resultSection.style.display = "none";
 
 /* Handle first selection */
@@ -41,9 +37,11 @@ const figureSelectionHandler = (figure) => {
   otherSections.forEach((figureSection) => {
     figureSection.style.display = "none";
   });
-  figureChooser.classList.remove("middle");
   visibleSection.style.display = "inline-block";
   figureMain.style.display = "flex";
+  figureForms.forEach((form) => {
+    form.reset();
+  });
   resultSection.style.display = "none";
 };
 

@@ -7,8 +7,8 @@
     --titles-font: 'Ubuntu', sans-serif;
     --content-font: 'BioRhyme', serif;
     /* FONT SIZES */
-    --main-titles-size: 4rem;
-    --subtitles-size: 3rem;
+    --main-titles-size: 3.5rem;
+    --subtitles-size: 2.5rem;
     --common-texts-size: 2rem;
 }
 
@@ -24,13 +24,10 @@ html {
 
 body {
     background-color: var(--js-white);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     height: 100vh;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    color: var(--js-black);
-    font-family: var(--titles-font);
-    font-size: var(--main-titles-size);
 }
 
 input {
@@ -49,7 +46,7 @@ input {
 
 .header {
     border-bottom: thin solid black;
-    height: 50px;
+    height: 5vh;
 }
 
 .header__go-back {
@@ -83,24 +80,19 @@ input {
     font-style: italic;
 }
 
-.middle {
-    height: calc(100% - 75px);
-}
-
 .figure-chooser {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    margin: auto;
-    padding: 50px;
+    justify-content: space-evenly;
+    height: 20vh;
 }
 
 .figure-chooser__label {
     color: var(--js-black);
     font-family: var(--content-font);
     font-size: var(--main-titles-size);
-    margin-bottom: 10px;
+    line-height: 3.5rem;
     text-align: center;
 }
 
@@ -116,7 +108,8 @@ input {
     border-bottom: 15px solid var(--js-black);
     display: none;
     justify-content: center;
-    padding: 30px;
+    padding: 1vh;
+    min-height: 40vh;
     height: auto;
 }
 
@@ -132,7 +125,9 @@ input {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 15px;
+    color: var(--js-black);
+    font-family: var(--titles-font);
+    font-size: var(--main-titles-size);
     text-align: center;
     text-transform: uppercase;
 }
@@ -143,6 +138,7 @@ input {
     align-items: center;
     justify-content: space-evenly;
     width: 100%;
+    min-height: 35vh;
     height: 100%;
 }
 
@@ -154,13 +150,12 @@ input {
     align-items: center;
     flex-direction: row;
     text-align: center;
-    margin: 10px 0;
+    margin: 1.5vh 0;
 }
 
 .figure-section__form--input {
     color: black;
     font-size: var(--common-texts-size);
-    margin: 0 10px;
     height: 30px;
     width: 60px;
 }
@@ -170,7 +165,7 @@ input {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    margin-top: 15px;
+    margin-top: 1.5vh;
     width: 50%;
 }
 
@@ -179,8 +174,8 @@ input {
     color: var(--js-black);
     font-family: var(--titles-font);
     font-size: var(--common-texts-size);
-    margin: 5px 0;
-    padding: 15px;
+    margin-top: 5px;
+    padding: 1.5vh;
     width: 225px;
 }
 
@@ -190,11 +185,14 @@ input {
 
 .result-section {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-    margin-top: 50px;
-    height: 150px;
+    margin: auto;
+    max-height: 15vh;
+    height: 100%;
+    min-width: 750px;
+    width: 50%;
 }
 
 .result-section__message {
@@ -212,8 +210,7 @@ input {
     font-size: var(--main-titles-size);
     font-family: var(--content-font);
     font-weight: bolder;
-    margin-top: 10px;
-    padding: 5px 25px;
+    padding: .5vh 2.5vh;
 }
 
 .result-section__value--number,
@@ -224,12 +221,13 @@ input {
 .footer {
     background-color: var(--js-black);
     border-top: thin solid black;
-    bottom: 0px;
-    position: fixed;
-    height: 75px;
+    margin-top: auto;
+    position: relative;
+    height: 10vh;
 }
 
 .footer-course {
+    clear: both;
     display: flex;
     align-items: center;
     font-family: var(--titles-font);
