@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./figures.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=BioRhyme:wght@200;300;400;700;800&family=Ubuntu:wght@500&display=swap"
+        rel="stylesheet">
+    <title>Taller1: Figuras Geométricas</title>
+</head>
+
+<body>
+    <header class="header"></header>
+    <form id="figure-chooser" class="figure-chooser">
+        <label for="figure-chooser__selector" class="figure-chooser__label">
+            Elija una figura geométrica:
+        </label>
+        <select name="figure" id="figure-chooser__selector" class="figure-chooser__selector">
+            <option disabled selected>Selecciona una opción</option>
+            <option value="circle">Círculo</option>
+            <option value="square">Cuadrado</option>
+            <option value="rectangle">Rectángulo</option>
+            <option value="triangle">Triángulo</option>
+        </select>
+    </form>
+    <main id="main-figure-page" class="main-figure-page">
+        <section id="circle-section" class="figure-section">
+            <form class="figure-section__form">
+                <h2 class="figure-section__title">Círculo</h2>
+                <label class="figure-section__form--label" for="">Ingrese radio del círculo:
+                    <input class="figure-section__form--input" type="number" required>
+                </label>
+                <div class="form-button-container">
+                    <button class="form-button">Calcular perímetro</button>
+                    <button class="form-button">Calcular área</button>
+                </div>
+            </form>
+        </section>
+        <section id="square-section" class="figure-section">
+            <form class="figure-section__form">
+                <h2 class="figure-section__title">Cuadrado</h2>
+                <label class="figure-section__form--label" for="">Ingrese lado del cuadrado:
+                    <input class="figure-section__form--input" type="number" required>
+                </label>
+                <div class="form-button-container">
+                    <button class="form-button">Calcular perímetro</button>
+                    <button class="form-button">Calcular área</button>
+                </div>
+            </form>
+        </section>
+        <section id="rectangle-section" class="figure-section">
+            <form class="figure-section__form">
+                <h2 class="figure-section__title">Rectángulo</h2>
+                <label class="figure-section__form--label" for="">Ingrese primer lado del rectángulo:
+                    <input class="figure-section__form--input" type="number" required>
+                </label>
+                <label class="figure-section__form--label" for="">Ingrese segundo lado del rectángulo:
+                    <input class="figure-section__form--input" type="number" required>
+                </label>
+                <div class="form-button-container">
+                    <button class="form-button">Calcular perímetro</button>
+                    <button class="form-button">Calcular área</button>
+                </div>
+            </form>
+        </section>
+        <section id="triangle-section" class="figure-section">
+            <form class="figure-section__form">
+                <h2 class="figure-section__title">Triángulo</h2>
+                <label class="figure-section__form--label" for="">Ingrese primer lado del triángulo:
+                    <input class="figure-section__form--input" type="number" required>
+                </label>
+                <label class="figure-section__form--label" for="">Ingrese segundo lado del triángulo:
+                    <input class="figure-section__form--input" type="number" required>
+                </label>
+                <label class="figure-section__form--label" for="">Ingrese tercer lado del triángulo:
+                    <input class="figure-section__form--input" type="number" required>
+                </label>
+                <div class="form-button-container">
+                    <button class="form-button">Calcular perímetro</button>
+                    <button class="form-button">Calcular área</button>
+                </div>
+            </form>
+        </section>
+    </main>
+    <section class="result-section"></section>
+    <footer class="footer">
+        <img class="footer-logo" src="https://static.platzi.com/media/achievements/image-1-cc841d1d-a03a-4387-8e9e-0ce3da69fa51.png" alt="JS-Challenge logo">
+        <span class="footer-sign">
+            @PatUgarte
+        </span>
+    </footer>
+</body>
+
+<script src="./figures.js"></script>
+
+</html>
