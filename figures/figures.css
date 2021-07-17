@@ -7,9 +7,9 @@
     --titles-font: 'Ubuntu', sans-serif;
     --content-font: 'BioRhyme', serif;
     /* FONT SIZES */
-    --main-titles-size: 2.8rem;
-    --subtitles-size: 2.2rem;
-    --common-texts-size: 1.8rem;
+    --main-titles-size: 4rem;
+    --subtitles-size: 3rem;
+    --common-texts-size: 2rem;
 }
 
 * {
@@ -78,7 +78,7 @@ input {
     align-items: center;
     justify-content: center;
     margin: auto;
-    padding: 30px;
+    padding: 50px;
 }
 
 .figure-chooser__label {
@@ -114,11 +114,12 @@ input {
 }
 
 .figure-section__title {
-    text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 15px;
+    text-align: center;
+    text-transform: uppercase;
 }
 
 .figure-section__form {
@@ -164,12 +165,45 @@ input {
     font-family: var(--titles-font);
     font-size: var(--common-texts-size);
     margin: 5px 0;
-    padding: 5px;
-    width: 250px;
+    padding: 15px;
+    width: 225px;
 }
 
 .form-button:hover {
     cursor: pointer;
+}
+
+.result-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 50px;
+    height: 150px;
+}
+
+.result-section__message {
+    color: black;
+    font-size: var(--subtitles-size);
+    font-family: var(--titles-font);
+}
+
+.result-section__value {
+    background-color: var(--js-black);
+    border-radius: 20px;
+    color: var(--js-yellow);
+    display: flex;
+    flex-direction: row;
+    font-size: var(--main-titles-size);
+    font-family: var(--content-font);
+    font-weight: bolder;
+    margin-top: 10px;
+    padding: 5px 25px;
+}
+
+.result-section__value--number,
+.result-section__value--unit {
+    margin: 0 5px;
 }
 
 .footer {
