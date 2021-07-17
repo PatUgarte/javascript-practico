@@ -2,16 +2,14 @@
     /* COLORS */
     --js-black: #2f2e2d;
     --js-white: #fefee7;
-    --js-yellow: #efd81d;
-    --node-geen: #363636;
+    --js-yellow: #f6df1c;
     /* FONT FAMILIES */
     --titles-font: 'Ubuntu', sans-serif;
     --content-font: 'BioRhyme', serif;
     /* FONT SIZES */
-    --main-titles-size: 3.5rem;
-    --subtitles-size: 2.5rem;
-    --common-texts-size: 1.5rem;
-    --auxiliar-texts-size: 1.2rem;
+    --main-titles-size: 2.8rem;
+    --subtitles-size: 2.2rem;
+    --common-texts-size: 1.8rem;
 }
 
 * {
@@ -35,14 +33,43 @@ h1, h2, h3, h4, h5, h6 {
     font-size: var(--main-titles-size);
 }
 
-.header, .footer {
-    background-color: var(--js-black);
-    color: var(--js-yellow);
-    display: flex;
-    align-items: center;
+input {
+    outline: none;
+}
+
+.go-back-button {
+    color: black;
+    font-family: var(--content-font);
+    font-size: var(--common-texts-size);
+    font-weight: bolder;
+    position: absolute;
+    left: 20px;
+    top: 10px;
+    text-decoration: none;
+}
+
+.go-back-button:hover span {
+    text-decoration: underline;
+}
+
+.js-challenge {
+    color: var(--js-black);
     font-family: var(--titles-font);
-    font-size: var(--subtitles-size);
-    height: 75px;
+    font-size: var(--common-texts-size);
+    font-weight: bolder;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    text-decoration: none;
+}
+
+.js-challenge:hover {
+    color: var(--js-yellow);
+    font-style: italic;
+}
+
+.middle {
+    height: calc(100% - 75px);
 }
 
 .figure-chooser {
@@ -63,8 +90,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .figure-chooser__selector {
+    color: black;
     font-size: var(--subtitles-size);
-    width: fit-content;
+    width: 350px;
 }
 
 .main-figure-page {
@@ -82,7 +110,7 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     justify-content: space-evenly;
     height: 100%;
-    width: 50vw;
+    width: 100%;
 }
 
 .figure-section__title {
@@ -90,7 +118,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .figure-section__form {
@@ -110,13 +138,15 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     flex-direction: row;
     text-align: center;
-    margin: 10px 0 20px;
+    margin: 10px 0;
 }
 
 .figure-section__form--input {
+    color: black;
     font-size: var(--common-texts-size);
-    height: 20px;
-    width: 50px;
+    margin: 0 10px;
+    height: 30px;
+    width: 60px;
 }
 
 .form-button-container {
@@ -124,13 +154,14 @@ h1, h2, h3, h4, h5, h6 {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    width: 75%;
+    margin-top: 15px;
+    width: 50%;
 }
 
 .form-button {
     background-color: var(--js-white);
     color: var(--js-black);
-    font-family: var(--content-font);
+    font-family: var(--titles-font);
     font-size: var(--common-texts-size);
     margin: 5px 0;
     padding: 5px;
@@ -142,16 +173,53 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer {
+    background-color: var(--js-black);
     bottom: 0px;
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    font-family: var(--content-font);
+    font-weight: bold;
     padding: 0 20px;
     position: fixed;
+    height: 75px;
     width: 100%;
 }
 
-.footer-sign {}
+.footer-course {
+    display: flex;
+    align-items: center;
+    font-family: var(--titles-font);
+    font-weight: 400;
+    text-decoration: none;
+    height: 100%;
+}
 
-.footer-logo {
+.footer-course:hover .footer-course__name {
+    text-decoration: underline;
+}
+
+.footer-course:hover .footer-course__logo {
+    transform: rotate(360deg);
+    transition: all 1.5s ease;
+}
+
+.footer-course__name {
+    color: var(--js-yellow);
+    font-size: var(--common-texts-size);
+    margin-left: 10px;
+}
+
+.footer-course__logo {
     height: 65%;
+}
+
+.footer-sign {
+    color: var(--js-yellow);
+    font-size: var(--subtitles-size);
+    text-decoration: none;
+}
+
+.footer-sign:hover {
+    text-decoration: underline;
 }

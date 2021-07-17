@@ -15,8 +15,13 @@
 </head>
 
 <body>
-    <header class="header"></header>
-    <form id="figure-chooser" class="figure-chooser">
+    <a class="go-back-button" href="/">
+        < <span>Go Back</span>
+    </a>
+    <a class="js-challenge" href="https://platzi.com/clases/jschallenge/">
+        <span>#JSChallenge</span>
+    </a>
+    <form id="figure-chooser" class="figure-chooser middle">
         <label for="figure-chooser__selector" class="figure-chooser__label">
             Elija una figura geométrica:
         </label>
@@ -32,8 +37,9 @@
         <section id="circle-section" class="figure-section">
             <form class="figure-section__form">
                 <h2 class="figure-section__title">Círculo</h2>
-                <label class="figure-section__form--label" for="">Ingrese radio del círculo:
-                    <input class="figure-section__form--input" type="number" required>
+                <label class="figure-section__form--label" for="">Radio del círculo:
+                    <input class="figure-section__form--input" min="1" placeholder="0" type="number" required>
+                    cm
                 </label>
                 <div class="form-button-container">
                     <button class="form-button">Calcular perímetro</button>
@@ -44,8 +50,9 @@
         <section id="square-section" class="figure-section">
             <form class="figure-section__form">
                 <h2 class="figure-section__title">Cuadrado</h2>
-                <label class="figure-section__form--label" for="">Ingrese lado del cuadrado:
-                    <input class="figure-section__form--input" type="number" required>
+                <label class="figure-section__form--label" for="">Lado del cuadrado:
+                    <input class="figure-section__form--input" min="1" placeholder="0" type="number" required>
+                    cm
                 </label>
                 <div class="form-button-container">
                     <button class="form-button">Calcular perímetro</button>
@@ -56,11 +63,13 @@
         <section id="rectangle-section" class="figure-section">
             <form class="figure-section__form">
                 <h2 class="figure-section__title">Rectángulo</h2>
-                <label class="figure-section__form--label" for="">Ingrese primer lado del rectángulo:
-                    <input class="figure-section__form--input" type="number" required>
+                <label class="figure-section__form--label" for="">Primer lado del rectángulo:
+                    <input class="figure-section__form--input" min="1" placeholder="0" type="number" required>
+                    cm
                 </label>
-                <label class="figure-section__form--label" for="">Ingrese segundo lado del rectángulo:
-                    <input class="figure-section__form--input" type="number" required>
+                <label class="figure-section__form--label" for="">Primer lado del rectángulo:
+                    <input class="figure-section__form--input" min="1" placeholder="0" type="number" required>
+                    cm
                 </label>
                 <div class="form-button-container">
                     <button class="form-button">Calcular perímetro</button>
@@ -71,14 +80,17 @@
         <section id="triangle-section" class="figure-section">
             <form class="figure-section__form">
                 <h2 class="figure-section__title">Triángulo</h2>
-                <label class="figure-section__form--label" for="">Ingrese primer lado del triángulo:
-                    <input class="figure-section__form--input" type="number" required>
+                <label class="figure-section__form--label" for="">Primer lado del triángulo:
+                    <input class="figure-section__form--input" min="1" placeholder="0" type="number" required>
+                    cm
                 </label>
-                <label class="figure-section__form--label" for="">Ingrese segundo lado del triángulo:
-                    <input class="figure-section__form--input" type="number" required>
+                <label class="figure-section__form--label" for="">Segundo lado del triángulo:
+                    <input class="figure-section__form--input" min="1" placeholder="0" type="number" required>
+                    cm
                 </label>
-                <label class="figure-section__form--label" for="">Ingrese tercer lado del triángulo:
-                    <input class="figure-section__form--input" type="number" required>
+                <label class="figure-section__form--label" for="">Tercer lado del triángulo:
+                    <input class="figure-section__form--input" min="1" placeholder="0" type="number" required>
+                    cm
                 </label>
                 <div class="form-button-container">
                     <button class="form-button">Calcular perímetro</button>
@@ -89,10 +101,17 @@
     </main>
     <section class="result-section"></section>
     <footer class="footer">
-        <img class="footer-logo" src="https://static.platzi.com/media/achievements/image-1-cc841d1d-a03a-4387-8e9e-0ce3da69fa51.png" alt="JS-Challenge logo">
-        <span class="footer-sign">
+        <a href="https://platzi.com/cursos/javascript-practico/" class="footer-course">
+            <img class="footer-course__logo"
+                src="https://static.platzi.com/media/achievements/image-1-cc841d1d-a03a-4387-8e9e-0ce3da69fa51.png"
+                alt="JS-Challenge logo">
+            <p class="footer-course__name">
+                Curso Práctico de JavaScript
+            </p>
+        </a>
+        <a href="https://github.com/PatUgarte" class="footer-sign">
             @PatUgarte
-        </span>
+        </a>
     </footer>
 </body>
 
