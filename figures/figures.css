@@ -37,33 +37,48 @@ input {
     outline: none;
 }
 
-.go-back-button {
-    color: black;
+.header,
+.footer {
+    background-color: var(--js-black);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.header {
+    border-bottom: thin solid black;
+    height: 50px;
+}
+
+.header__go-back {
+    color: white;
     font-family: var(--content-font);
     font-size: var(--common-texts-size);
     font-weight: bolder;
-    position: absolute;
-    left: 20px;
-    top: 10px;
     text-decoration: none;
 }
 
-.go-back-button:hover span {
+.header__go-back:hover span {
     text-decoration: underline;
 }
 
-.js-challenge {
-    color: var(--js-black);
+.header__title {
+    color: var(--js-yellow);
+    font-family: var(--content-font);
+    font-size: var(--common-texts-size);
+}
+
+.header__hashtag {
+    color: var(--js-white);
     font-family: var(--titles-font);
     font-size: var(--common-texts-size);
     font-weight: bolder;
-    position: absolute;
-    right: 20px;
-    top: 15px;
     text-decoration: none;
 }
 
-.js-challenge:hover {
+.header__hashtag:hover {
     color: var(--js-yellow);
     font-style: italic;
 }
@@ -208,16 +223,10 @@ input {
 
 .footer {
     background-color: var(--js-black);
+    border-top: thin solid black;
     bottom: 0px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-family: var(--content-font);
-    font-weight: bold;
-    padding: 0 20px;
     position: fixed;
     height: 75px;
-    width: 100%;
 }
 
 .footer-course {
@@ -250,7 +259,9 @@ input {
 
 .footer-sign {
     color: var(--js-yellow);
+    font-family: var(--content-font);
     font-size: var(--subtitles-size);
+    font-weight: bold;
     text-decoration: none;
 }
 
