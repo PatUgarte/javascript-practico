@@ -15,25 +15,26 @@ const RESULT_UNITS_OBJECT = { perimeter: "cm", area: "cm²" };
 const figureForms = document.querySelectorAll(".figure-section__form");
 const figureSelector = document.getElementById("figure-chooser__selector");
 const figureMain = document.getElementById("main-figure-page");
-/* Figure-forms */
-const circleForm = document.getElementById("circle-section__form");
-const squareForm = document.getElementById("circle-section__form");
-const rectangleForm = document.getElementById("circle-section__form");
-const triangleForm = document.getElementById("circle-section__form");
-/* Result container */
+/* Result Container */
 const resultSection = document.getElementById("result-section");
 const resultMessageEl = document.getElementById("result-section__message");
+const resultValueContainer = document.getElementById("result-section__value");
 const resultNumberEl = document.getElementById("result-section__value--number");
 const resultUnitEl = document.getElementById("result-section__value--unit");
+/* Footer Sign */
+const footerSignContainer = document.getElementById("footer__sign-container");
+const footerSign = document.getElementById("footer__sign");
 
 /* Reseting values and states */
 figureSelector.value = figureSelector[0].value;
-resultSection.style.display = "none";
+resultSection.style.visibility = "hidden";
+resultValueContainer.classList.add("hide-section");
 
 /* Handle first selection */
 const figureSelectionHandler = (figure) => {
   const visibleSection = document.getElementById(`${figure}-section`);
   const otherSections = document.querySelectorAll(".figure-section");
+  resultValueContainer.classList.add("hide-section");
   otherSections.forEach((figureSection) => {
     figureSection.style.display = "none";
   });
@@ -42,52 +43,90 @@ const figureSelectionHandler = (figure) => {
   figureForms.forEach((form) => {
     form.reset();
   });
-  resultSection.style.display = "none";
+  resultSection.style.visibility = "hidden";
 };
 
 figureSelector.addEventListener("change", ({ target }) =>
   figureSelectionHandler(target.value)
 );
 
+/* Calculation Functions */
+/* Circle */
+const calculateCirclePerimeter = ([radius]) => 2 * PI * radius;
+const calculateCircleArea = ([radius]) => PI * Math.pow(radius, 2);
+/* Square */
+const calculateSquarePerimeter = ([side]) => side * 4;
+const calculateSquareArea = ([side]) => Math.pow(side, 2);
+/* Rectangle */
+const calculateRectanglePerimeter = ([firstSide, secondSide]) =>
+  firstSide * 2 + secondSide * 2;
+const calculateRectangleArea = ([firstSide, secondSide]) =>
+  firstSide * secondSide;
+/* Triangle */
+const calculateTrianglePerimeter = ([base, side]) => base + side * 2;
+const calculateTriangleArea = ([base, side]) =>
+  (base * Math.sqrt(Math.pow(side, 2) - Math.pow(side, 2) / 4)) / 2;
+
+/* Calculation Object */
+const calculationsObj = {
+  perimeter: {
+    circle: calculateCirclePerimeter,
+    square: calculateSquarePerimeter,
+    rectangle: calculateRectanglePerimeter,
+    triangle: calculateTrianglePerimeter,
+  },
+  area: {
+    circle: calculateCircleArea,
+    square: calculateSquareArea,
+    rectangle: calculateRectangleArea,
+    triangle: calculateTriangleArea,
+  },
+};
+
 /* Result Message */
-let resultMessage;
-let resultNumber;
-let resultUnit;
 const generateResultText = (calcType, figure) =>
   `El ${calcType} del ${figure} es de:`;
 
-/* Handle calculations */
-const calculateCirclePerimeter = (radius) => {
-  return (2 * PI * radius).toFixed(2);
+const setResutlElements = (message, value, unit) => {
+  resultMessageEl.innerHTML = message;
+  resultNumberEl.innerHTML = value;
+  resultUnitEl.innerHTML = unit;
 };
 
-const calculateCircleArea = (radius) => {
-  return (PI * radius * radius).toFixed(2);
-};
-
-const setResutlElements = () => {
-    resultMessageEl.innerHTML = resultMessage;
-    resultNumberEl.innerHTML = resultNumber;
-    resultUnitEl.innerHTML = resultUnit;
-}
-
-const handleCircleCalculation = (e) => {
+/* Calculations Handler */
+const handleCalculations = (e) => {
   if (e.preventDefault) e.preventDefault();
+  resultValueContainer.classList.remove("hide-section");
   const calc = e.explicitOriginalTarget.value;
-  const figure = e.target[0].value;
-  const radius = e.target[1].valueAsNumber;
-  const calcType = RESULT_CALCS_OBJECT[calc];
-  resultUnit = RESULT_UNITS_OBJECT[calc];
-  resultMessage = generateResultText(calcType, RESULT_FIGURES_OBJECT[figure]);
+  const formValues = Object.values(e.target);
+  const figure = formValues.shift().value;
+  const values = formValues.map((value) => value.valueAsNumber);
 
-  if (calc === PERIMETER_CALC) {
-    resultNumber = calculateCirclePerimeter(radius);
-  } else {
-    resultNumber = calculateCircleArea(radius);
-  }
-  setResutlElements();
-  resultSection.style.display = "flex";
+  const calcType = RESULT_CALCS_OBJECT[calc];
+  const msgFigure = RESULT_FIGURES_OBJECT[figure];
+  const resultMessage = generateResultText(calcType, msgFigure);
+  const resultValue = calculationsObj[calc][figure](values).toFixed(2);
+  const resultUnit = RESULT_UNITS_OBJECT[calc];
+
+  setResutlElements(resultMessage, resultValue, resultUnit);
+  resultSection.style.visibility = "visible";
   return false;
 };
 
-circleForm.addEventListener("submit", handleCircleCalculation);
+figureForms.forEach((form) =>
+  form.addEventListener("submit", handleCalculations)
+);
+
+/* Sign Animation Handler */
+let animationExecuted = false;
+
+footerSignContainer.addEventListener("mouseover", () => {
+  !animationExecuted && footerSign.classList.add("animate-typing");
+  animationExecuted = true;
+});
+
+footerSignContainer.addEventListener("animationend", () => {
+  footerSign.classList.remove("animate-typing");
+  footerSign.style.width = "100%";
+});
+

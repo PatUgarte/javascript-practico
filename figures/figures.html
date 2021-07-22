@@ -23,7 +23,7 @@
             < <span>Go Back</span>
         </a>
         <p class="header__title">Taller #1: Figuras Geométricas</p>
-        <a class="header__hashtag" href="https://platzi.com/clases/jschallenge/">
+        <a class="header__hashtag" href="https://platzi.com/clases/jschallenge/" target="_blank">
             <span>#JSChallenge</span>
         </a>
     </header>
@@ -51,9 +51,14 @@
                 </label>
                 <div class="form-button-container">
                     <button class="form-button" id="circle-perimeter-button" name="circleAction" type="submit"
-                        value="perimeter">Calcular perímetro</button>
-                    <button class="form-button" id="circle-area-button" name="circleAction" type="submit"
-                        value="area">Calcular área</button>
+                        value="perimeter">
+                        Perímetro
+                        <span></span><span></span><span></span><span></span>
+                    </button>
+                    <button class="form-button" id="circle-area-button" name="circleAction" type="submit" value="area">
+                        Área
+                        <span></span><span></span><span></span><span></span>
+                    </button>
                 </div>
             </form>
         </section>
@@ -66,8 +71,15 @@
                     cm
                 </label>
                 <div class="form-button-container">
-                    <button class="form-button" id="square-perimeter-button">Calcular perímetro</button>
-                    <button class="form-button" id="square-area-button">Calcular área</button>
+                    <button class="form-button" id="square-perimeter-button" name="squareAction" type="submit"
+                        value="perimeter">
+                        Perímetro
+                        <span></span><span></span><span></span><span></span>
+                    </button>
+                    <button class="form-button" id="square-area-button" name="squareAction" type="submit" value="area">
+                        Área
+                        <span></span><span></span><span></span><span></span>
+                    </button>
                 </div>
             </form>
         </section>
@@ -75,52 +87,65 @@
             <form class="figure-section__form" id="rectangle-section__form">
                 <h2 class="figure-section__title">Rectángulo</h2>
                 <input type="hidden" name="figure" value="rectangle">
-                <label class="figure-section__form--label" for="">Primer lado del rectángulo:
+                <label class="figure-section__form--label" for="">Base del rectángulo:
                     <input class="figure-section__form--input" min="1" placeholder="0" type="number" required>
                     cm
                 </label>
-                <label class="figure-section__form--label" for="">Primer lado del rectángulo:
+                <label class="figure-section__form--label" for="">Altura del rectángulo:
                     <input class="figure-section__form--input" min="1" placeholder="0" type="number" required>
                     cm
                 </label>
                 <div class="form-button-container">
-                    <button class="form-button" id="rectangle-perimeter-button">Calcular perímetro</button>
-                    <button class="form-button" id="rectangle-area-button">Calcular área</button>
+                    <button class="form-button" id="rectangle-perimeter-button" name="rectangleAction" type="submit"
+                        value="perimeter">
+                        Perímetro
+                        <span></span><span></span><span></span><span></span>
+                    </button>
+                    <button class="form-button" id="rectangle-area-button" name="rectangleAction" type="submit"
+                        value="area">
+                        Área
+                        <span></span><span></span><span></span><span></span>
+                    </button>
                 </div>
             </form>
         </section>
         <section id="triangle-section" class="figure-section">
             <form class="figure-section__form" id="triangle-section__form">
-                <h2 class="figure-section__title">Triángulo</h2>
+                <h2 class="figure-section__title">Triángulo (isóseles)</h2>
                 <input type="hidden" name="figure" value="triangle">
-                <label class="figure-section__form--label" for="">Primer lado del triángulo:
+                <label class="figure-section__form--label" for="">Base del triángulo:
                     <input class="figure-section__form--input" min="1" placeholder="0" type="number" required>
                     cm
                 </label>
-                <label class="figure-section__form--label" for="">Segundo lado del triángulo:
-                    <input class="figure-section__form--input" min="1" placeholder="0" type="number" required>
-                    cm
-                </label>
-                <label class="figure-section__form--label" for="">Tercer lado del triángulo:
+                <label class="figure-section__form--label" for="">Lados iguales del triángulo:
                     <input class="figure-section__form--input" min="1" placeholder="0" type="number" required>
                     cm
                 </label>
                 <div class="form-button-container">
-                    <button class="form-button" id="triangle-perimeter-button">Calcular perímetro</button>
-                    <button class="form-button" id="triangle-area-button">Calcular área</button>
+                    <button class="form-button" id="triangle-perimeter-button" name="triangleAction" type="submit"
+                        value="perimeter">
+                        Perímetro
+                        <span></span><span></span><span></span><span></span>
+                    </button>
+                    <button class="form-button" id="triangle-area-button" name="triangleAction" type="submit"
+                        value="area">
+                        Área
+                        <span></span><span></span><span></span><span></span>
+                    </button>
                 </div>
             </form>
         </section>
     </main>
-    <section class="result-section" id ="result-section">
-        <p class="result-section__message" id="result-section__message"></p>
-        <div class="result-section__value">
-            <p class="result-section__value--number" id="result-section__value--number"></p>
-            <p class="result-section__value--unit" id="result-section__value--unit"></p>
+    <section class="result-section" id="result-section">
+        <p class="result-section__message" id="result-section__message">-</p>
+        <div class="result-section__value" id="result-section__value">
+            <span></span><span></span><span></span>
+            <p class="result-section__value--number" id="result-section__value--number">-</p>
+            <p class="result-section__value--unit" id="result-section__value--unit">-</p>
         </div>
     </section>
     <footer class="footer">
-        <a href="https://platzi.com/cursos/javascript-practico/" class="footer-course">
+        <a href="https://platzi.com/cursos/javascript-practico/" target="_blank" class="footer-course">
             <img class="footer-course__logo"
                 src="https://static.platzi.com/media/achievements/image-1-cc841d1d-a03a-4387-8e9e-0ce3da69fa51.png"
                 alt="JS-Challenge logo">
@@ -128,8 +153,13 @@
                 Curso Práctico de JavaScript
             </p>
         </a>
-        <a href="https://github.com/PatUgarte" class="footer-sign">
-            @PatUgarte
+        <a class="footer__sign-container" id="footer__sign-container" href="https://github.com/PatUgarte" target="_blank">
+            <span class="footer__at">
+                @
+            </span>
+            <span class="footer__sign" id="footer__sign">
+                PatUgarte
+            </span>
         </a>
     </footer>
 </body>
