@@ -6,6 +6,7 @@
     /* FONT FAMILIES */
     --titles-font: 'Ubuntu', sans-serif;
     --content-font: 'BioRhyme', serif;
+    --auxiliar-font: 'Share Tech Mono', monospace;
     /* FONT SIZES */
     --main-titles-size: 3.5rem;
     --subtitles-size: 2.5rem;
@@ -44,15 +45,16 @@ input {
     background-color: var(--js-black);
     display: flex;
     align-items: center;
-    justify-content: space-between;
     padding: 0 20px;
     width: 100%;
 }
 
 .header {
     border-bottom: thin solid black;
+    justify-content: center;
     min-height: 35px;
     height: 5vh;
+    position: relative;
 }
 
 .header__go-back {
@@ -60,6 +62,8 @@ input {
     font-family: var(--content-font);
     font-size: 20px;
     font-weight: bolder;
+    position: absolute;
+    left: 20px;
     text-decoration: none;
 }
 
@@ -71,6 +75,8 @@ input {
     color: var(--js-yellow);
     font-family: var(--content-font);
     font-size: 25px;
+    justify-self: center;
+    text-transform: uppercase;
 }
 
 .header__hashtag {
@@ -78,7 +84,10 @@ input {
     font-family: var(--titles-font);
     font-size: var(--common-texts-size);
     font-weight: bolder;
+    justify-self: end;
     text-decoration: none;
+    position: absolute;
+    right: 20px;
     transition: 1.5s;
 }
 
@@ -97,7 +106,7 @@ input {
 
 .figure-chooser__label {
     color: var(--js-black);
-    font-family: var(--content-font);
+    font-family: var(--titles-font);
     font-size: var(--main-titles-size);
     line-height: 3.5rem;
     text-align: center;
@@ -105,6 +114,7 @@ input {
 
 .figure-chooser__selector {
     color: black;
+    font-family: var(--content-font);
     font-size: var(--subtitles-size);
     padding: 5px;
     width: 350px;
@@ -166,8 +176,9 @@ input {
     color: black;
     font-size: var(--common-texts-size);
     margin: 0 10px;
+    padding-left: 5px;
     height: 30px;
-    width: 60px;
+    width: 70px;
 }
 
 .form-button-container {
@@ -241,12 +252,13 @@ input[type="submit"]::-moz-focus-inner {
 
 .result-section {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-wrap: wrap;
     margin: auto;
     max-height: 20vh;
+    height: 100%;
 }
 
 .result-section__message {
@@ -311,6 +323,7 @@ input[type="submit"]::-moz-focus-inner {
 .footer {
     background-color: var(--js-black);
     border-top: thin solid black;
+    justify-content: space-between;
     position: relative;
     min-height: 50px;
     height: 10vh;
@@ -347,6 +360,7 @@ input[type="submit"]::-moz-focus-inner {
 }
 
 .footer__sign-container {
+    animation: width-adjustment 1s forwards 2.75s;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -355,18 +369,16 @@ input[type="submit"]::-moz-focus-inner {
     position: relative;
     text-decoration: none;
     height: 50%;
-    width: 140px;
+    width: 145px;
 }
 
 .footer__sign-container:hover .footer__at {
-    font-family: var(--content-font);
     font-size: 25px;
-    font-weight: 600;
+    font-weight: 500;
     text-decoration: underline;
 }
 
 .footer__sign-container:hover .footer__sign {
-    font-family: var(--content-font);
     font-size: 25px;
     font-weight: 600;
     text-decoration: underline;
@@ -374,22 +386,34 @@ input[type="submit"]::-moz-focus-inner {
 
 .footer__at {
     color: var(--js-yellow);
-    font-family: var(--content-font);
+    font-family: var(--auxiliar-font);
     font-size: 25px;
-    left: -25px;
+    left: -16px;
     position: absolute;
 }
 
 .footer__sign {
-    animation: blink .5s step-end infinite alternate;
+    animation: blink .35s step-end infinite alternate, text-adjustment 1s 0.25s forwards;
+    animation-fill-mode: both;
     border-right: 3px solid;
     color: var(--js-yellow);
-    font-family: var(--content-font);
+    font-family: var(--auxiliar-font);
     font-size: 25px;
     font-weight: 400;
+    letter-spacing: 2px;
     overflow: hidden;
     width: 0;
     white-space: nowrap;
+}
+
+.hide-section {
+    transition: 0s !important;
+}
+
+.animate-typing {
+    animation: typing 1.5s steps(9),
+    blink .5s step-end infinite alternate;
+    width: 100%;
 }
 
 @keyframes typing {
@@ -410,12 +434,14 @@ input[type="submit"]::-moz-focus-inner {
     }
 }
 
-.hide-section {
-    transition: 0s !important;
+@keyframes text-adjustment {
+    100% {
+        letter-spacing: 0px;
+    }
 }
 
-.animate-typing {
-    animation: typing 2s steps(8),
-    blink .5s step-end infinite alternate;
-    width: 100%;
+@keyframes width-adjustment {
+    100% {
+        padding-right: 15px;
+    }
 }

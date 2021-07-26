@@ -97,7 +97,7 @@ const setResutlElements = (message, value, unit) => {
 const handleCalculations = (e) => {
   if (e.preventDefault) e.preventDefault();
   resultValueContainer.classList.remove("hide-section");
-  const calc = e.explicitOriginalTarget.value;
+  const calc = e.explicitOriginalTarget ? e.explicitOriginalTarget.value : e.submitter.value;
   const formValues = Object.values(e.target);
   const figure = formValues.shift().value;
   const values = formValues.map((value) => value.valueAsNumber);
